@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy
-                .WithOrigins("http://localhost:3000")
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
@@ -124,12 +124,13 @@ app.UseCors("AllowFrontend");
 app.UseAuthentication();   // 
 app.UseAuthorization();
 
-app.MapControllers();
+
 
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     await RoleSeeder.SeedAsync(roleManager);
 }
+app.MapControllers();
 
 app.Run();

@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 namespace Gradution_Project.Models
 {
-    public class GraduationDbContext: IdentityDbContext<ApplicationUser>
+    public class GraduationDbContext : IdentityDbContext<ApplicationUser>
     {
         //public GraduationDbContext(DbContextOptions<GraduationDbContext> options)
         //: base(options)
@@ -17,7 +17,7 @@ namespace Gradution_Project.Models
             : base(options)
         {
         }
-        
+
 
         // =========================
         // Core
@@ -192,6 +192,15 @@ namespace Gradution_Project.Models
                 .HasOne<AIRequestLog>()
                 .WithMany()
                 .HasForeignKey(e => e.RequestId);
+
+
+
+            // =========================
+            //modelBuilder.Entity<User>()
+            //.HasOne(u => u.ApplicationUser)
+            //.WithOne(a => a.UserProfile)
+            //.HasForeignKey<User>(u => u.Id);
+            //}
         }
     }
 }

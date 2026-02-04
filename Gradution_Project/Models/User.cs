@@ -22,5 +22,6 @@
         public ICollection<DailyStat> DailyStats { get; set; }
         public ICollection<UserMealPlan> MealPlans { get; set; }
         public ICollection<UserWorkoutPlan> WorkoutPlans { get; set; }
+        //public ApplicationUser? ApplicationUser { get; set; }
     }
 }

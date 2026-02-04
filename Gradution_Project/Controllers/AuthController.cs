@@ -55,6 +55,7 @@ namespace Gradution_Project.Controllers
             await _userManager.AddToRoleAsync(user, "User");
 
             return Ok("User registered successfully");
+
         }
 
 
